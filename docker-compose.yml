@@ -7,7 +7,15 @@ services:
     ports:
       - "5000:5000"
     restart: always
-    
+    environment:
+      - DB_CONNECTION=`${DB_CONNECTION}`
+      - STRIPE_KEY=`${STRIPE_KEY}`
+      - CLOUDINARY_CLOUD_NAME=`${CLOUDINARY_CLOUD_NAME}`
+      - CLOUDINARY_API=`${CLOUDINARY_API}`
+      - CLOUDINARY_API_SECRET=`${CLOUDINARY_API_SECRET}`
+      - ACCESS_TOKEN_SECRET=`${ACCESS_TOKEN_SECRET}`
+      - ACCESS_TOKEN_EXPIRY=`${ACCESS_TOKEN_EXPIRY}`
+      - ORIGIN=`${ORIGIN}`
     depends_on:
       - database
     networks:
